@@ -1,4 +1,4 @@
-# AI-and-Machine-Learning
+# Artificial Intelligence and Machine Learning
 
 The repository is about lab homework of AI and Machine Learning, in which we use numpy to write many classical machine learning models.
 
