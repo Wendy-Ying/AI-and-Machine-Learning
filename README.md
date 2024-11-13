@@ -18,6 +18,11 @@ Homework 4 is logistic regression. Also using the wine dataset, use MBGD and SGD
 The code is in [hw4.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw4.py), and the report is in [hw4.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw4.pdf).
 
 ## hw5
-Homework 5 is multi-layer perceptron. It use numpy to develop MLP model, with SGD and MBGD update method. Also, there's cross validation and early stopping, to automatically increase the size of the layer. The model is tested by classification problem and nonlinear regression problem.
+Homework 5 is multi-layer perceptron. It use numpy to develop MLP model, with SGD and MBGD update method. Also, there's cross validation and early stopping, to automatically increase the size of the layer. The model is tested by classification problem and nonlinear regression problem, and both of them have perfect performance.
 
 The code is in [hw5.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw5.py), and the report is in [hw5.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw5.pdf).
+
+## hw6
+Homework 6 is k-nearest neighbour. Realized by numpy, the model has perfect performance with Breast Cancer Wisconsin dataset.
+
+The code is in [hw6.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw6.py), and the report is in [hw6.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw6.pdf).
