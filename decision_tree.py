@@ -1,115 +1,45 @@
 import numpy as np
+from collections import Counter
 
-class DecisionTree:
-    # Create an internal class called Node
-    class Node:
-        def __init__(self) -> None:
-            # When a node a leaf node, then we use the output label as the value
-            self.value = None
-            # When a node is an internal node, then we use feature_index on it
-            self.feature_index = None
-            # Use a dictionary called children to indicate the children nodes, which contain {feature_value: node, }
-            self.children ={}
+# 计算熵
+def calculate_entropy(labels):
+    total_count = len(labels)
+    counts = Counter(labels)
+    entropy = 0.0
+    for count in counts.values():
+        probability = count / total_count
+        entropy -= probability * np.log2(probability)
+    return entropy
 
-        def __str__(self) -> str:
-            # If the node is a leaf node, then we use the output label as the value
-            # If the node is an internal node, then we use feature_index on it
-            if self.children:
-                s = f'Internal node <{self.feature_index}>:\n'
-                for fv, node in self.children.items():
-                    ss = f'[{fv}]-> {node}'
-                    s += '\t' + ss.replace('\n', '\n\t') + '\n'
-            else:
-                s = f'Leaf node ({self.value})'
-            
-            return s
+# 计算信息增益
+def information_gain(data, labels, threshold):
+    total_entropy = calculate_entropy(labels)  # 计算总熵
+    # 根据阈值分割数据
+    left_indices = [i for i, x in enumerate(data) if x <= threshold]
+    right_indices = [i for i, x in enumerate(data) if x > threshold]
     
-    def __init__(self, gain_threshhold = 1e-2) -> None:
-        # Set a threshold for information gain
-        self.gain_threshold = gain_threshhold
-
-    def _entropy(self, y):
-        # Compute entropy of output -sum(p(Y=y)log2(p(Y=y))), which is a scalar
-        count_y = np.bincount(y) # Count the number of each output label
-        prob_y = count_y[np.nonzero(count_y)] / y.size # Compute the probability of each output label
-        entropy_y = -np.sum(prob_y * np.log2(prob_y)) # Compute the entropy of output
-        return entropy_y
+    # 计算分割后的熵
+    left_labels = [labels[i] for i in left_indices]
+    right_labels = [labels[i] for i in right_indices]
+    left_entropy = calculate_entropy(left_labels)
+    right_entropy = calculate_entropy(right_labels)
     
-    def _conditional_entropy(self, feature, y):
-        # Compute the conditional entropy according to the formula H(Y|feature) = Sum_{feature_value} p(feature = feature_value) H(Y|feature=feature_value)
-        # The arugment feature represents the input data vector of one specific feature
-        feature_values = np.unique(feature)
-        h = 0.
-        for v in feature_values:
-            y_sub = y[feature == v]
-            prob_y_sub = y_sub.size / y.size
-            h += prob_y_sub * self._entropy(y_sub) # Compute the conditional entropy of feature_value
-
-        return h
+    # 计算加权后的熵
+    n = len(labels)
+    weighted_entropy = (len(left_labels) / n) * left_entropy + (len(right_labels) / n) * right_entropy
     
-    def _information_gain(self, feature, y):
-        # Compute the information gain according to the formula IG(feature) = H(Y) - H(Y|feature)
-        ig_feature = self._entropy(y) - self._conditional_entropy(feature, y)
-        return ig_feature
-    
-    def _select_feature(self, X, y, features_list):
-        # Select the feature with the largest information gain
-        if features_list:
-            gains = np.apply_along_axis(self._information_gain, 0, X[:, features_list], y)
-            index = np.argmax(gains)
-            if gains[index] > self.gain_threshold:
-                return index
+    # 计算信息增益
+    info_gain = total_entropy - weighted_entropy
+    return info_gain
 
-        return None
+# 示例数据
+data = [1, 2, 3, 4, 5]
+labels = ['A', 'A', 'B', 'B', 'B']
 
-    def _build_tree(self, X, y, features_list):
-        # Build a decision tree recuresively. 
-        # The default output should be the label with the maximum counting
-        node = DecisionTree.Node()
-        labels_count = np.bincount(y) 
-        node.value = np.argmax(np.bincount(y))
+# 计算所有可能阈值的信息增益
+thresholds = [(data[i] + data[i + 1]) / 2 for i in range(len(data) - 1)]
+info_gains = [information_gain(data, labels, th) for th in thresholds]
 
-        # Check whether the labels are the same
-        if np.count_nonzero(labels_count) !=1:
-            # Select the feature with the largest information gain
-            index = self._select_feature(X, y, features_list)
-
-            if index is not None:
-                # Remove this feature from the features list
-                node.feature_index = features_list.pop(index)
-
-                # Divide the training set according to this selected feature
-                # Then use the subset of training examples in each branch to create a sub-tree
-                feature_values = np.unique(X[:, node.feature_index])
-                for v in feature_values:
-                    # Obtain the subset of training examples
-                    idx = X[:, node.feature_index] == v
-                    X_sub, y_sub = X[idx], y[idx]
-
-                    # Build a sub-tree
-                    node.children[v] = self._build_tree(X_sub, y_sub, features_list.copy())
-
-        return node 
-    
-    
-    def train(self, X_train, y_train):
-        _, n = X_train.shape
-        self.tree_ = self._build_tree(X_train, y_train, list(range(n)))
-
-    def _predict_one(self, x):
-        node = self.tree_
-        while node.children:
-            child = node.children.get(x[node.feature_index])
-            if not child:
-                break
-            node = child
-        
-        return node.value
-
-    def predict(self, X):
-        return np.apply_along_axis(self._predict_one, axis=1, arr=X)
-    
-    def __str__(self):
-        if hasattr(self, 'tree_'):
-            return str(self.tree_)
-        return ''
+# 选择信息增益最大的阈值
+best_threshold = thresholds[np.argmax(info_gains)]
+print(f"Best threshold: {best_threshold}")
