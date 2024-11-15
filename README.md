@@ -37,3 +37,10 @@ Homework 6 is k-nearest neighbour. Realized by numpy, the model has perfect perf
 The code is in [hw6.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw6.py), and the report is in [hw6.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw6.pdf).
 
 <img src="https://github.com/user-attachments/assets/1d5f2bd6-bbb8-4d22-8e10-7972e31c1b00" width="30%">
+
+## hw7
+Homework 7 is decision tree. It use Contact Lenses Dataset to test the model. The model is only the most basic implementation.
+
+The code is in [hw7.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw7.py), and the report is in [hw7.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw7.pdf).
+
+<img src="https://github.com/user-attachments/assets/60a4e18c-c487-48c5-b4d1-bed8330b990c" width="30%">
