@@ -51,3 +51,13 @@ Homework 8 is multi-class mlp. It use optical digits dataset to test the model, 
 The code is in [hw8.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw8.py), and the report is in [hw8.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw8.pdf).
 
 <img src="https://github.com/user-attachments/assets/c9c8dfef-d308-407f-82a8-f3614fe6cfb7" width="30%">
+
+## hw9
+Homework 9 is Dimensionality Reduction and Autoencoders. It realize PCA, Linear Autoencoder and Nonlinear Autoencoder. From my analysis, such dimensionality really works.
+
+The code is in [hw9.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw9.py), and the report is in [hw9.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw9.pdf).
+
+<img src="https://github.com/user-attachments/assets/976e3248-24fa-482d-a7d5-d03f4a97d5ac" width="30%">
+<img src="https://github.com/user-attachments/assets/d68c1a9f-75cc-4a09-be73-521677dfff60" width="30%">
+<img src="https://github.com/user-attachments/assets/461b9a5a-bca4-4ff3-a7d2-9056e6160904" width="30%">
+
