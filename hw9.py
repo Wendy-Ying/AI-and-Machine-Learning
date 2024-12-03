@@ -252,8 +252,10 @@ def load_data():
     return X, y
 
 def normalize_data(X):
-    # Normalize the data to the range [0, 1]
-    return (X - X.mean(axis=0)) / (X.max(axis=0) - X.min(axis=0))
+    mean = np.mean(X, axis=0)
+    std = np.std(X, axis=0)
+    X_standardized = (X - mean) / std
+    return X_standardized
 
 def evaluate_model(model, X, y):
     # Evaluate the model using reconstruction error
