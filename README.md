@@ -57,7 +57,7 @@ Homework 9 is Dimensionality Reduction and Autoencoders. It realize PCA, Linear 
 
 The code is in [hw9.py](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/hw9.py), and the report is in [hw9.pdf](https://github.com/Wendy-Ying/AI-and-Machine-Learning-Lab/blob/main/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0hw9.pdf).
 
-<img src="https://github.com/user-attachments/assets/976e3248-24fa-482d-a7d5-d03f4a97d5ac" width="30%">
-<img src="https://github.com/user-attachments/assets/d68c1a9f-75cc-4a09-be73-521677dfff60" width="30%">
-<img src="https://github.com/user-attachments/assets/461b9a5a-bca4-4ff3-a7d2-9056e6160904" width="30%">
+<img src="https://github.com/user-attachments/assets/dcc086e6-2763-4e12-af10-0fd98967b078" width="30%">
+<img src="https://github.com/user-attachments/assets/95c9b6ab-6c38-46c4-9d21-2d666997d0fc" width="30%">
+<img src="https://github.com/user-attachments/assets/a4c52d81-ce05-4774-8e6a-2ca31134f1c8" width="30%">
 
